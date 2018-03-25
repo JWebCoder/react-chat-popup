@@ -1,36 +1,36 @@
-import * as actions from './actionTypes';
+import * as actions from './actionTypes'
 
 export function toggleChat() {
   return {
-    type: actions.TOGGLE_CHAT
-  };
+    type: actions.TOGGLE_CHAT,
+  }
 }
 
 export function toggleInputDisabled() {
   return {
-    type: actions.TOGGLE_INPUT_DISABLED
-  };
+    type: actions.TOGGLE_INPUT_DISABLED,
+  }
 }
 
 export function addUserMessage(text) {
   return {
     type: actions.ADD_NEW_USER_MESSAGE,
-    text
-  };
+    text,
+  }
 }
 
 export function addResponseMessage(text) {
   return {
     type: actions.ADD_NEW_RESPONSE_MESSAGE,
-    text
-  };
+    text,
+  }
 }
 
 export function addLinkSnippet(link) {
   return {
     type: actions.ADD_NEW_LINK_SNIPPET,
-    link
-  };
+    link,
+  }
 }
 
 export function renderCustomComponent(component, props, showAvatar) {
@@ -38,12 +38,24 @@ export function renderCustomComponent(component, props, showAvatar) {
     type: actions.ADD_COMPONENT_MESSAGE,
     component,
     props,
-    showAvatar
-  };
+    showAvatar,
+  }
 }
 
 export function dropMessages() {
   return {
-    type: actions.DROP_MESSAGES
-  };
+    type: actions.DROP_MESSAGES,
+  }
+}
+
+export function setFullscreen() {
+  return {
+    type: actions.SET_FULLSCREEN,
+  }
+}
+
+export function unsetFullscreen() {
+  return {
+    type: actions.UNSET_FULLSCREEN,
+  }
 }

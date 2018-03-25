@@ -1,35 +1,80 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import Conversation from './components/Conversation';
-import Launcher from './components/Launcher';
-import './style.scss';
+import Conversation from 'components/Conversation'
+import Launcher from 'components/Launcher'
+import { setFullscreen, unsetFullscreen } from 'store/actions/dispatcher'
+import styles from './style'
+import _ from 'lodash'
 
-const WidgetLayout = props =>
-  <div className={props.fullScreenMode ? 'widget-container full-screen' : 'widget-container'}>
-    {
-      props.showChat &&
-      <Conversation
-        title={props.title}
-        subtitle={props.subtitle}
-        sendMessage={props.onSendMessage}
-        senderPlaceHolder={props.senderPlaceHolder}
-        profileAvatar={props.profileAvatar}
-        toggleChat={props.onToggleConversation}
-        showChat={props.showChat}
-        showCloseButton={props.showCloseButton}
-        disabledInput={props.disabledInput}
-      />
+class WidgetLayout extends React.Component {
+  state = {
+    width: 0,
+    height: 0,
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions()
+    window.addEventListener('resize', _.throttle(this.updateWindowDimensions, 500))
+  }
+
+  updateWindowDimensions = () => {
+    if (window.innerWidth < 800) {
+      if (!this.props.fullscreen) {
+        setFullscreen()
+      }
+    } else {
+      if (!this.props.fullScreenMode) {
+        unsetFullscreen()
+      }
     }
-    {
-      !props.fullScreenMode &&
-      <Launcher
-        toggle={props.onToggleConversation}
-        badge={props.badge}
-      />
+    this.setState({ width: window.innerWidth, height: window.innerHeight })
+  }
+
+  render() {
+    let style = {}
+    if (this.state.width === 0) {
+      style = {
+        display: 'none',
+      }
+    } else {
+      style = {
+        ...styles.widgetContainer,
+      }
     }
-  </div>;
+
+    if (this.props.fullscreen && this.props.showChat) {
+      style = {
+        ...style,
+        ...styles.fullscreen,
+      }
+    }
+
+    return (
+      <div style={style}>
+        {
+          this.props.showChat &&
+          <Conversation
+            title={this.props.title}
+            subtitle={this.props.subtitle}
+            sendMessage={this.props.onSendMessage}
+            senderPlaceHolder={this.props.senderPlaceHolder}
+            profileAvatar={this.props.profileAvatar}
+            toggleChat={this.props.onToggleConversation}
+            showChat={this.props.showChat}
+            showCloseButton={this.props.showCloseButton}
+            disabledInput={this.props.disabledInput}
+          />
+        }
+        <Launcher
+          toggle={this.props.onToggleConversation}
+          badge={this.props.badge}
+        />
+      </div>
+    )
+  }
+}
 
 WidgetLayout.propTypes = {
   title: PropTypes.string,
@@ -42,10 +87,11 @@ WidgetLayout.propTypes = {
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
   fullScreenMode: PropTypes.bool,
-  badge: PropTypes.number
-};
+  badge: PropTypes.number,
+}
 
 export default connect(store => ({
   showChat: store.behavior.get('showChat'),
-  disabledInput: store.behavior.get('disabledInput')
-}))(WidgetLayout);
+  disabledInput: store.behavior.get('disabledInput'),
+  fullscreen: store.behavior.get('fullscreen'),
+}))(WidgetLayout)

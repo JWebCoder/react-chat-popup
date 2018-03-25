@@ -1,17 +1,17 @@
-import { Map } from 'immutable';
-import { MESSAGES_TYPES, MESSAGE_SENDER } from 'constants';
+import { Map } from 'immutable'
+import { MESSAGES_TYPES, MESSAGE_SENDER } from 'constants'
 
-import Message from 'messagesComponents/Message';
-import Snippet from 'messagesComponents/Snippet';
+import Message from 'components/Message'
+import Snippet from 'components/Snippet'
 
 export function createNewMessage(text, sender) {
-  return Map({
+  return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
     sender,
-    showAvatar: sender === MESSAGE_SENDER.RESPONSE
-  });
+    showAvatar: sender === MESSAGE_SENDER.RESPONSE,
+  }
 }
 
 export function createLinkSnippet(link) {
@@ -22,16 +22,16 @@ export function createLinkSnippet(link) {
     link: link.link,
     target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
-    showAvatar: true
-  });
+    showAvatar: true,
+  })
 }
 
 export function createComponentMessage(component, props, showAvatar) {
-  return Map({
+  return {
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,
     props,
     sender: MESSAGE_SENDER.RESPONSE,
-    showAvatar
-  });
+    showAvatar,
+  }
 }

@@ -1,0 +1,15 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "extends": ["standard-flow"],
+  "rules": {
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "space-before-function-paren": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"]
+  }
+}

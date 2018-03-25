@@ -1,0 +1,42 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Badge from 'components/Badge'
+
+import openLauncher from '../../../assets/launcher_button.svg'
+import close from '../../../assets/clear-button.svg'
+import styles from './style'
+
+const Launcher = ({ toggle, chatOpened, badge, fullscreen }) => {
+  let launcherStyle = {
+    ...styles.launcher,
+  }
+
+  if (chatOpened && fullscreen) {
+    launcherStyle = {
+      display: 'none',
+    }
+  }
+
+  return (
+    <button type="button" style={launcherStyle} onClick={toggle}>
+      <Badge badge={badge} />
+      {
+        chatOpened
+          ? <img src={close} alt="" style={styles.closeLauncher}/>
+          : <img src={openLauncher} alt="" />
+      }
+    </button>
+  )
+}
+
+Launcher.propTypes = {
+  toggle: PropTypes.func,
+  chatOpened: PropTypes.bool,
+  badge: PropTypes.number,
+}
+
+export default connect(state => ({
+  chatOpened: state.behavior.get('showChat'),
+  fullscreen: state.behavior.get('fullscreen'),
+}))(Launcher)

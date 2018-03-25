@@ -1,29 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { toggleChat, addUserMessage } from 'actions';
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { toggleChat, addUserMessage } from 'store/actions'
+import { setFullscreen } from 'store/actions/dispatcher'
 
-import WidgetLayout from './layout';
+import WidgetLayout from './layout'
 
-class Widget extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fullScreenMode) {
-      this.props.dispatch(toggleChat());
+class Widget extends React.Component {
+  componentDidMount() {
+    if (this.props.fullScreenMode) {
+      setFullscreen()
     }
   }
 
   toggleConversation = () => {
-    this.props.dispatch(toggleChat());
+    this.props.dispatch(toggleChat())
   }
 
   handleMessageSubmit = (event) => {
-    event.preventDefault();
-    const userInput = event.target.message.value;
+    event.preventDefault()
+    const userInput = event.target.message.value
     if (userInput) {
-      this.props.dispatch(addUserMessage(userInput));
-      this.props.handleNewUserMessage(userInput);
+      this.props.dispatch(addUserMessage(userInput))
+      this.props.handleNewUserMessage(userInput)
     }
-    event.target.message.value = '';
+    event.target.message.value = ''
   }
 
   render() {
@@ -39,7 +40,7 @@ class Widget extends Component {
         fullScreenMode={this.props.fullScreenMode}
         badge={this.props.badge}
       />
-    );
+    )
   }
 }
 
@@ -51,7 +52,7 @@ Widget.propTypes = {
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
   fullScreenMode: PropTypes.bool,
-  badge: PropTypes.number
-};
+  badge: PropTypes.number,
+}
 
-export default connect()(Widget);
+export default connect()(Widget)
