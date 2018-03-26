@@ -1,4 +1,3 @@
-import { Map } from 'immutable'
 import { MESSAGES_TYPES, MESSAGE_SENDER } from 'constants'
 
 import Message from 'components/Message'
@@ -15,7 +14,7 @@ export function createNewMessage(text, sender) {
 }
 
 export function createLinkSnippet(link) {
-  return Map({
+  return {
     type: MESSAGES_TYPES.SNIPPET.LINK,
     component: Snippet,
     title: link.title,
@@ -23,7 +22,7 @@ export function createLinkSnippet(link) {
     target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar: true,
-  })
+  }
 }
 
 export function createComponentMessage(component, props, showAvatar) {

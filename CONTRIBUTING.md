@@ -28,9 +28,9 @@ npm run build
 and then, add it to a dummy project using the file instead of the package. You can use either yarn or npm:
 
 ```bash
-npm i <path-to>/react-chat-widget
+npm i <path-to>/react-chat-popup
 
-yarn add file:<path-to>/react-chat-widget
+yarn add file:<path-to>/react-chat-popup
 ```
 
 ##  Testing

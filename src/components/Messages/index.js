@@ -4,13 +4,17 @@ import { connect } from 'react-redux'
 
 import styles from './styles'
 
+let messagesDiv = null
+
 const scrollToBottom = () => {
-  const messagesDiv = document.getElementById('messages')
-  messagesDiv.scrollTop = messagesDiv.scrollHeight
+  if (messagesDiv) {
+    messagesDiv.scrollTop = messagesDiv.scrollHeight
+  }
 }
 
 class Messages extends React.Component {
   componentDidMount() {
+    messagesDiv = document.getElementById('messages')
     scrollToBottom()
   }
 

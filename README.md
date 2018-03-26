@@ -1,8 +1,6 @@
-# react-chat-widget
-[![circle-ci](https://img.shields.io/circleci/project/github/Wolox/react-chat-widget.svg)](https://circleci.com/gh/Wolox/react-chat-widget)
-[![npm](https://img.shields.io/npm/v/react-chat-widget.svg)](https://www.npmjs.com/package/react-chat-widget)
+# react-chat-popup
+[![npm](https://img.shields.io/npm/v/react-chat-popup.svg)](https://www.npmjs.com/package/react-chat-popup)
 
-[![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
 ## Features
 
 - Plain text message UI
@@ -16,27 +14,27 @@
 
 #### npm
 ```bash
-npm install --save react-chat-widget
+npm install --save react-chat-popup
 ```
 
 #### yarn
 ```bash
-yarn add react-chat-widget
+yarn add react-chat-popup
 ```
 
 ## Usage
 
-1- Add the Widget component to your root component
+1- Add the popup component to your root component
 
 ```js
 import React, { Component } from 'react';
-import { Widget } from 'react-chat-widget';
+import { Chat } from 'react-chat-popup';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Widget />
+        <Chat />
       </div>
     );
   }
@@ -49,7 +47,7 @@ export default App;
 
 ```js
 import React, { Component } from 'react';
-import { Widget } from 'react-chat-widget';
+import { Chat } from 'react-chat-popup';
 
 class App extends Component {
   handleNewUserMessage = (newMessage) => {
@@ -60,7 +58,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Widget
+        <Chat
           handleNewUserMessage={this.handleNewUserMessage}
         />
       </div>
@@ -71,11 +69,11 @@ class App extends Component {
 export default App;
 ```
 
-3- Import the methods for you to add messages in the Widget. (See [messages](#messages))
+3- Import the methods for you to add messages in the Chat. (See [messages](#messages))
 
 ```js
 import React, { Component } from 'react';
-import { Widget, addResponseMessage } from 'react-chat-widget';
+import { Chat, addResponseMessage } from 'react-chat-popup';
 
 class App extends Component {
   componentDidMount() {
@@ -91,12 +89,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Widget
+        <Chat
           handleNewUserMessage={this.handleNewUserMessage}
         />
       </div>
     );
-  } 
+  }
 }
 
 export default App;
@@ -106,7 +104,7 @@ export default App;
 
 ```js
 import React, { Component } from 'react';
-import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
+import { Chat, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-popup';
 
 import logo from './logo.svg';
 
@@ -123,7 +121,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Widget
+        <Chat
           handleNewUserMessage={this.handleNewUserMessage}
           profileAvatar={logo}
           title="My new awesome title"
@@ -131,7 +129,7 @@ class App extends Component {
         />
       </div>
     );
-  } 
+  }
 }
 
 export default App;
@@ -154,21 +152,7 @@ export default App;
 
 #### Styles
 
-To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style to them!
-For expample:
-
-```css
-.conversation-container > .header {
-  background-color: red;
-}
-
-.message > .response {
-  background-color: black;
-  color: white;
-}
-```
-
-That way, you can leave the JS clean and keep the styles within the CSS.
+- [ ] TODO
 
 #### Messages
 
@@ -180,7 +164,7 @@ In order to add new messages, you are provided with the following methods:
   - Method to add a new message written as a response to a user input.
 
 - **addUserMessage**
-  - params: 
+  - params:
     - text
   - This method will add a new message written as a user. Keep in mind it will not trigger the prop handleNewUserMessage()
 
@@ -191,13 +175,13 @@ In order to add new messages, you are provided with the following methods:
     ```js
     {
       title: 'My awesome link',
-      link: 'https://github.com/Wolox/react-chat-widget',
+      link: 'https://github.com/Wolox/react-chat-popup',
       target: '_blank'
     }
     ```
   - By default, `target` value is `_blank` which will open the link in a new window.
 - **renderCustomComponent**
-  - params: 
+  - params:
     - component: Component to be render,
     - props: props the component needs,
     - showAvatar: boolean, default value: false; the component will be rendered with the avatar like the messages
@@ -207,7 +191,7 @@ In order to add new messages, you are provided with the following methods:
 
 #### Widget behavior
 
-You can also control certain actions of the widget:
+You can also control certain actions of the Chat:
 
 - **toggleWidget**
   - params: No params expected
@@ -219,6 +203,6 @@ You can also control certain actions of the widget:
 
 ## About
 
-This project is maintained by [Martín Callegari](https://github.com/mcallegari10) and it was written by [Wolox](http://www.wolox.com.ar).
+This project is based on the great work of [Wolox](http://www.wolox.com.ar).
 
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)

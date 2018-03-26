@@ -23,8 +23,8 @@ const Launcher = ({ toggle, chatOpened, badge, fullscreen }) => {
       <Badge badge={badge} />
       {
         chatOpened
-          ? <img src={close} alt="" style={styles.closeLauncher}/>
-          : <img src={openLauncher} alt="" />
+          ? <img src={close} alt="close launcher" style={styles.closeLauncher}/>
+          : <img src={openLauncher} alt="open launcher" />
       }
     </button>
   )

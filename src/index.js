@@ -10,7 +10,7 @@ import {
 } from 'store/actions/dispatcher'
 
 export {
-  ConnectedWidget as Widget,
+  ConnectedWidget as Chat,
   addUserMessage,
   addResponseMessage,
   addLinkSnippet,
