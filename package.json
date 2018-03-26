@@ -1,17 +1,20 @@
 {
   "name": "react-chat-popup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Chat web component for React apps",
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
-  "repository": "git@github.com:JWebCoder/react-chat-popup.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JWebCoder/react-chat-popup.git"
+  },
   "author": "João Moura <joao87moura@gmail.com>",
   "license": "MIT",
   "scripts": {
     "flow": "flow",
-    "prepublish": "npm run babel-prepublish && npm run flow-prepublish",
+    "prepublish": "yarn run babel-prepublish && npm run flow-prepublish",
     "babel-prepublish": "babel src/ -d lib",
     "flow-prepublish": "flow-copy-source src lib"
   },
