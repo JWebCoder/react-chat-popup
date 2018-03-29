@@ -1,4 +1,4 @@
-import ConnectedWidget from 'ConnectedWidget'
+import ConnectedChat from 'ConnectedChat'
 import {
   addUserMessage,
   addResponseMessage,
@@ -10,7 +10,7 @@ import {
 } from 'store/actions/dispatcher'
 
 export {
-  ConnectedWidget as Chat,
+  ConnectedChat as Chat,
   addUserMessage,
   addResponseMessage,
   addLinkSnippet,

@@ -8,7 +8,7 @@ import { setFullscreen, unsetFullscreen } from 'store/actions/dispatcher'
 import styles from './style'
 import _ from 'lodash'
 
-class WidgetLayout extends React.Component {
+class ChatLayout extends React.Component {
   state = {
     width: 0,
     height: 0,
@@ -76,7 +76,7 @@ class WidgetLayout extends React.Component {
   }
 }
 
-WidgetLayout.propTypes = {
+ChatLayout.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   onSendMessage: PropTypes.func,
@@ -90,8 +90,10 @@ WidgetLayout.propTypes = {
   badge: PropTypes.number,
 }
 
-export default connect(store => ({
-  showChat: store.behavior.get('showChat'),
-  disabledInput: store.behavior.get('disabledInput'),
-  fullscreen: store.behavior.get('fullscreen'),
-}))(WidgetLayout)
+const mapStateToProps = ({ behavior }) => ({
+  showChat: behavior.showChat,
+  disabledInput: behavior.disabledInput,
+  fullscreen: behavior.fullscreen,
+})
+
+export default connect(mapStateToProps)(ChatLayout)

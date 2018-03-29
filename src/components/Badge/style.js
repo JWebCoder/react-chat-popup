@@ -1,6 +1,10 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const styles = {
+const styles: {
+  badge: {}
+} = {
   badge: {
     position: 'fixed',
     top: '-10px',

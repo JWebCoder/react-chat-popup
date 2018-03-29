@@ -1,6 +1,8 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const messageBubble = (color) => ({
+const messageBubble = (color: string): {} => ({
   backgroundColor: color,
   borderRadius: '10px',
   padding: ' 0px 15px',
@@ -8,7 +10,12 @@ const messageBubble = (color) => ({
   textAlign: 'left',
 })
 
-const styles = {
+const styles: {
+  message: {
+    client: {},
+    response: {},
+  },
+} = {
   message: {
     client: {
       ...messageBubble(colors.turqois2),

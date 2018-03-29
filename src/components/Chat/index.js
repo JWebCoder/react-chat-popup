@@ -1,12 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { toggleChat, addUserMessage } from 'store/actions'
-import { setFullscreen } from 'store/actions/dispatcher'
+import { setFullscreen, toggleChat, addUserMessage } from 'store/actions/dispatcher'
 
-import WidgetLayout from './layout'
+import ChatLayout from './layout'
 
-class Widget extends React.Component {
+class Chat extends React.Component {
   componentDidMount() {
     if (this.props.fullScreenMode) {
       setFullscreen()
@@ -14,14 +12,14 @@ class Widget extends React.Component {
   }
 
   toggleConversation = () => {
-    this.props.dispatch(toggleChat())
+    toggleChat()
   }
 
   handleMessageSubmit = (event) => {
     event.preventDefault()
     const userInput = event.target.message.value
     if (userInput) {
-      this.props.dispatch(addUserMessage(userInput))
+      addUserMessage(userInput)
       this.props.handleNewUserMessage(userInput)
     }
     event.target.message.value = ''
@@ -29,7 +27,7 @@ class Widget extends React.Component {
 
   render() {
     return (
-      <WidgetLayout
+      <ChatLayout
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
         title={this.props.title}
@@ -44,7 +42,7 @@ class Widget extends React.Component {
   }
 }
 
-Widget.propTypes = {
+Chat.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
@@ -55,4 +53,4 @@ Widget.propTypes = {
   badge: PropTypes.number,
 }
 
-export default connect()(Widget)
+export default Chat

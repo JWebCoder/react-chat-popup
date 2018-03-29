@@ -17,7 +17,7 @@ export function renderCustomComponent(component, props, showAvatar = false) {
   store.dispatch(actions.renderCustomComponent(component, props, showAvatar))
 }
 
-export function toggleWidget() {
+export function toggleChat() {
   store.dispatch(actions.toggleChat())
 }
 
