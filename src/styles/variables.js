@@ -1,4 +1,15 @@
-const colors = {
+// @flow
+
+const colors: {
+  green1: string,
+  grey1: string,
+  grey2: string,
+  grey3: string,
+  turqois1: string,
+  turqois2: string,
+  white: string,
+  red: string,
+} = {
   green1: '#35e65d',
   grey1: '#cdd8ec',
   grey2: '#f4f7f9',

@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import { View, WebView } from 'react-native'
 import marked from 'marked'
 
 import styles from './styles'
@@ -16,9 +17,9 @@ class Message extends React.PureComponent<Props> {
     const sanitizedHTML = marked.parse(text, { sanitize: true })
 
     return (
-      <div style={styles.message[this.props.message.sender]}>
-        <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
-      </div>
+      <View style={styles.message[this.props.message.sender]}>
+        <WebView source={{html: sanitizedHTML}} />
+      </View>
     )
   }
 }

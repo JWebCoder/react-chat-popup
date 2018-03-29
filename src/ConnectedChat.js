@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 
-import Widget from 'components/Widget'
+import Chat from 'components/Chat'
 import store from 'store/store'
 
-const ConnectedWidget = props =>
+const ConnectedChat = props =>
   <Provider store={store}>
-    <Widget
+    <Chat
       title={props.title}
       subtitle={props.subtitle}
       handleNewUserMessage={props.handleNewUserMessage}
@@ -19,7 +19,7 @@ const ConnectedWidget = props =>
     />
   </Provider>
 
-ConnectedWidget.propTypes = {
+ConnectedChat.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
@@ -30,7 +30,7 @@ ConnectedWidget.propTypes = {
   badge: PropTypes.number,
 }
 
-ConnectedWidget.defaultProps = {
+ConnectedChat.defaultProps = {
   title: 'Welcome',
   subtitle: 'This is your chat subtitle',
   senderPlaceHolder: 'Type a message...',
@@ -39,4 +39,4 @@ ConnectedWidget.defaultProps = {
   badge: 0,
 }
 
-export default ConnectedWidget
+export default ConnectedChat

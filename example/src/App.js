@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Widget, addResponseMessage } from 'react-chat-popup'
+import { Chat, addResponseMessage } from 'react-chat-popup'
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Widget
+        <Chat
           title="Blue-Infinity"
           subtitle="Next-Gen Bot"
           handleNewUserMessage={this.handleNewUserMessage}
