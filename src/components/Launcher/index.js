@@ -1,15 +1,25 @@
 // @flow
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Badge from 'components/Badge'
+import Img from 'components/Image'
+import Button from 'components/Button'
 
 import openLauncher from '../../../assets/launcher_button.svg'
 import close from '../../../assets/clear-button.svg'
 import styles from './style'
 
-const Launcher = ({ toggle, chatOpened, badge, fullscreen }) => {
+import type { StoreState } from 'store/store'
+
+type Props = {
+  toggle: () => void,
+  chatOpened: boolean,
+  badge: number,
+  fullscreen: boolean,
+}
+
+const Launcher = ({ toggle, chatOpened, badge, fullscreen }: Props) => {
   let launcherStyle = {
     ...styles.launcher,
   }
@@ -21,24 +31,18 @@ const Launcher = ({ toggle, chatOpened, badge, fullscreen }) => {
   }
 
   return (
-    <button type="button" style={launcherStyle} onClick={toggle}>
+    <Button style={launcherStyle} onClick={toggle}>
       <Badge badge={badge} />
       {
         chatOpened
-          ? <img src={close} alt="close launcher" style={styles.closeLauncher}/>
-          : <img src={openLauncher} alt="open launcher" />
+          ? <Img src={close} alt="close launcher" style={styles.closeLauncher}/>
+          : <Img src={openLauncher} alt="open launcher" />
       }
-    </button>
+    </Button>
   )
 }
 
-Launcher.propTypes = {
-  toggle: PropTypes.func,
-  chatOpened: PropTypes.bool,
-  badge: PropTypes.number,
-}
-
-const mapStateToProps = ({ behavior }) => ({
+const mapStateToProps = ({ behavior }: StoreState) => ({
   chatOpened: behavior.showChat,
   fullscreen: behavior.fullscreen,
 })

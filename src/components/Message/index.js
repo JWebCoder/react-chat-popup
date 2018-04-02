@@ -2,10 +2,17 @@
 
 import * as React from 'react'
 import marked from 'marked'
+import Div from 'components/Div'
+import HTMLDiv from 'components/HTMLDiv'
 
 import styles from './styles'
 
-import type { Props } from './props'
+type Props = {
+  message: {
+    text: string,
+    sender: "client" | "response"
+  }
+}
 
 class Message extends React.PureComponent<Props> {
   render() {
@@ -16,9 +23,9 @@ class Message extends React.PureComponent<Props> {
     const sanitizedHTML = marked.parse(text, { sanitize: true })
 
     return (
-      <div style={styles.message[this.props.message.sender]}>
-        <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
-      </div>
+      <Div style={styles.message[this.props.message.sender]}>
+        <HTMLDiv HTML={sanitizedHTML} />
+      </Div>
     )
   }
 }

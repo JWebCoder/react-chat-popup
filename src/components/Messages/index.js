@@ -1,18 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+// @flow
+
+import * as React from 'react'
 import { connect } from 'react-redux'
+import Div from 'components/Div'
+import Img from 'components/Image'
 
 import styles from './styles'
 
+import type { StoreState } from 'store/store'
+
+type Message = {
+  showAvatar: boolean,
+  type: string,
+  component: any,
+  props?: {}
+}
+
+type Props = {
+  fullscreen: boolean,
+  messages: Message[],
+  profileAvatar: string,
+}
+
 let messagesDiv = null
 
-const scrollToBottom = () => {
+const scrollToBottom = (): void => {
   if (messagesDiv) {
     messagesDiv.scrollTop = messagesDiv.scrollHeight
   }
 }
 
-class Messages extends React.Component {
+class Messages extends React.Component<Props> {
   componentDidMount() {
     messagesDiv = document.getElementById('messages')
     scrollToBottom()
@@ -22,9 +40,9 @@ class Messages extends React.Component {
     scrollToBottom()
   }
 
-  getComponentToRender = (message) => {
+  getComponentToRender = (message: Message) => {
     const ComponentToRender = message.component
-    if (message.type === 'component') {
+    if (message.type === 'component' && ComponentToRender) {
       return <ComponentToRender {...message.props} />
     }
     return <ComponentToRender message={message} />
@@ -41,32 +59,27 @@ class Messages extends React.Component {
     }
 
     return (
-      <div id="messages" style={messagesContainerStyle}>
+      <Div id="messages" style={messagesContainerStyle}>
         {
           this.props.messages.map((message, index) =>
-            <div style={styles.message} key={index}>
+            <Div style={styles.message} key={index}>
               {
                 this.props.profileAvatar &&
                 message.showAvatar &&
-                <img src={this.props.profileAvatar} style={styles.avatar} alt="profile" />
+                <Img src={this.props.profileAvatar} style={styles.avatar} alt="profile" />
               }
               {
                 this.getComponentToRender(message)
               }
-            </div>
+            </Div>
           )
         }
-      </div>
+      </Div>
     )
   }
 }
 
-Messages.propTypes = {
-  messages: PropTypes.array,
-  profileAvatar: PropTypes.string,
-}
-
-const mapStateToProps = ({ messages, behavior }) => {
+const mapStateToProps = ({ messages, behavior }: StoreState) => {
   return {
     messages: messages,
     fullscreen: behavior.fullscreen,

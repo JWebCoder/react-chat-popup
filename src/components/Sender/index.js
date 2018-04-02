@@ -1,8 +1,11 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Div from 'components/Div'
+import Button from 'components/Button'
+import Img from 'components/Image'
 
 import send from '../../../assets/send_button.svg'
 import styles from './style'
@@ -37,6 +40,12 @@ class Sender extends React.Component<Props, State> {
     })
   }
 
+  handleKeyPress = (event: SyntheticKeyboardEvent<>) => {
+    if (event.key === 'Enter') {
+      this.sendMessage()
+    }
+  }
+
   render() {
     let {
       sendMessage,
@@ -57,7 +66,7 @@ class Sender extends React.Component<Props, State> {
     }
 
     return (
-      <div style={styles.sender} onSubmit={sendMessage}>
+      <Div style={styles.sender} onSubmit={sendMessage}>
         <input
           type="text"
           style={styles.newMessage}
@@ -67,11 +76,12 @@ class Sender extends React.Component<Props, State> {
           autoComplete="off"
           value={this.state.message}
           onChange={this.onChangeMessage}
+          onKeyPress={this.handleKeyPress}
         />
-        <button type="button" style={sendStyle} onClick={this.sendMessage}>
-          <img src={send} style={styles.sendIcon} alt="send" />
-        </button>
-      </div>
+        <Button style={sendStyle} onClick={this.sendMessage}>
+          <Img src={send} style={styles.sendIcon} alt="send" />
+        </Button>
+      </Div>
     )
   }
 }
