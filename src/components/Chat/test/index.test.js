@@ -3,49 +3,52 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import assetMock from '/../mocks/fileMock'
-import Widget from '../index'
-import WidgetLayout from '../layout'
+import Chat from '../index'
+import Layout from '../layout'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('<Widget />', () => {
+describe('<Chat />', () => {
   const profile = assetMock
   const handleUserMessage = jest.fn()
-  const newMessageEvent = {
-    target: {
-      message: {
-        value: 'New message',
-      },
-    },
-    preventDefault() {},
-  }
-  const dispatch = jest.fn()
+  const newMessageEvent = 'New message'
 
-  const widgetComponent = shallow(
-    <Widget.WrappedComponent
+  const chatComponent = shallow(
+    <Chat
       handleNewUserMessage={handleUserMessage}
       profileAvatar={profile}
-      dispatch={dispatch}
     />
   )
 
-  it('should render WidgetLayout', () => {
-    expect(widgetComponent.find(WidgetLayout)).toHaveLength(1)
+  it('should render ChatLayout when on fullscreen mode', () => {
+    const chatFullscreenModeComponent = shallow(
+      <Chat
+        handleNewUserMessage={handleUserMessage}
+        profileAvatar={profile}
+        fullScreenMode={true}
+      />
+    )
+    expect(chatFullscreenModeComponent.props().fullScreenMode).toBe(true)
+    expect(chatFullscreenModeComponent.find(Layout)).toHaveLength(1)
   })
 
-  it('should prevent events default behavior', () => {
-    const spyPreventDefault = jest.spyOn(newMessageEvent, 'preventDefault')
-    widgetComponent.instance().handleMessageSubmit(newMessageEvent)
-    expect(spyPreventDefault).toHaveBeenCalled()
+  it('should render ChatLayout when not on fullScreen mode', () => {
+    expect(chatComponent.props().fullScreenMode).toBe(undefined)
+    expect(chatComponent.find(Layout)).toHaveLength(1)
+  })
+
+  it('should not call prop when calling newMessageEvent width empty message', () => {
+    chatComponent.instance().handleMessageSubmit('')
+    expect(handleUserMessage).not.toBeCalled()
   })
 
   it('should call prop when calling newMessageEvent', () => {
-    widgetComponent.instance().handleMessageSubmit(newMessageEvent)
+    chatComponent.instance().handleMessageSubmit(newMessageEvent)
     expect(handleUserMessage).toBeCalled()
   })
 
-  it('should clear the message input when newMessageEvent', () => {
-    widgetComponent.instance().handleMessageSubmit(newMessageEvent)
-    expect(newMessageEvent.target.message.value).toBe('')
+  it('should call toggleChat', () => {
+    const result = chatComponent.instance().toggleConversation()
+    expect(result).toBe(undefined)
   })
 })

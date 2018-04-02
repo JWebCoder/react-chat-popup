@@ -7,7 +7,9 @@ import {
 } from './helper'
 import * as actionTypes from '../actions/actionTypes'
 
-const initialState = []
+export type Messages = []
+
+const initialState: Messages = []
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {

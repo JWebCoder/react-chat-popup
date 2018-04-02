@@ -1,6 +1,16 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const styles = {
+const styles: {
+  header: {},
+  fullscreenHeader: {},
+  title: {},
+  fullscreenTitle: {},
+  closeButton: {},
+  closeIcon: {},
+  fullscreenCloseButton: {},
+} = {
   header: {
     backgroundColor: colors.turqois1,
     borderRadius: '10px 10px 0 0',
