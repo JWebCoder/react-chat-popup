@@ -1,6 +1,14 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const styles = {
+const styles: {
+  sender: {},
+  newMessage: {},
+  send: {},
+  fullscreenSend: {},
+  sendIcon: {},
+} = {
   sender: {
     alignItems: 'center',
     display: 'flex',

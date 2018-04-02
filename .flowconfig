@@ -36,6 +36,8 @@
 ; https://github.com/expo/expo/issues/162
 .*/node_modules/react-native-gesture-handler/.*
 
+.*/example/.*
+
 [include]
 
 [libs]
