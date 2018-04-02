@@ -1,4 +1,9 @@
-const styles = {
+// @flow
+
+const styles: {
+  widgetContainer: {},
+  fullscreen: {}
+} = {
   widgetContainer: {
     bottom: 0,
     display: 'flex',

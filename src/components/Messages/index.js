@@ -66,10 +66,10 @@ Messages.propTypes = {
   profileAvatar: PropTypes.string,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ messages, behavior }) => {
   return {
-    messages: state.messages,
-    fullscreen: state.behavior.get('fullscreen'),
+    messages: messages,
+    fullscreen: behavior.fullscreen,
   }
 }
 

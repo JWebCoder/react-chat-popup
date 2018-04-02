@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -5,26 +7,61 @@ import { connect } from 'react-redux'
 import send from '../../../assets/send_button.svg'
 import styles from './style'
 
-const Sender = ({ sendMessage, placeholder, disabledInput, fullscreen }) => {
-  let sendStyle = {
-    ...styles.send,
+class Sender extends React.Component {
+  state = {
+    message: '',
   }
 
-  if (fullscreen) {
-    sendStyle = {
-      ...sendStyle,
-      ...styles.fullscreenSend,
+  onChangeMessage = (event: SyntheticEvent<HTMLInputElement>) => {
+    this.setState({
+      message: event.currentTarget.value,
+    })
+  }
+
+  sendMessage = () => {
+    this.props.sendMessage(this.state.message)
+    this.setState({
+      message: '',
+    })
+  }
+
+  render() {
+    let {
+      sendMessage,
+      placeholder,
+      disabledInput,
+      fullscreen,
+    } = this.props
+
+    let sendStyle = {
+      ...styles.send,
     }
-  }
 
-  return (
-    <form style={styles.sender} onSubmit={sendMessage}>
-      <input type="text" style={styles.newMessage} name="message" placeholder={placeholder} disabled={disabledInput} autoFocus autoComplete="off" />
-      <button type="submit" style={sendStyle}>
-        <img src={send} style={styles.sendIcon} alt="send" />
-      </button>
-    </form>
-  )
+    if (fullscreen) {
+      sendStyle = {
+        ...sendStyle,
+        ...styles.fullscreenSend,
+      }
+    }
+
+    return (
+      <div style={styles.sender} onSubmit={sendMessage}>
+        <input
+          type="text"
+          style={styles.newMessage}
+          placeholder={placeholder}
+          disabled={disabledInput}
+          autoFocus
+          autoComplete="off"
+          value={this.state.message}
+          onChange={this.onChangeMessage}
+        />
+        <button type="button" style={sendStyle} onClick={this.sendMessage}>
+          <img src={send} style={styles.sendIcon} alt="send" />
+        </button>
+      </div>
+    )
+  }
 }
 
 Sender.propTypes = {
@@ -33,8 +70,8 @@ Sender.propTypes = {
   disabledInput: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
-  fullscreen: state.behavior.get('fullscreen'),
+const mapStateToProps = ({ behavior }) => ({
+  fullscreen: behavior.fullscreen,
 })
 
 export default connect(mapStateToProps)(Sender)

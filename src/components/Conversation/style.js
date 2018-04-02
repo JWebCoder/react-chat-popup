@@ -1,6 +1,12 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const styles = {
+const styles: {
+  conversationContainer: {},
+  visible: {},
+  fullScreen: {}
+} = {
   conversationContainer: {
     opacity: 0,
     borderRadius: '10px',

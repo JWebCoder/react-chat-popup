@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import Header from 'components/Header'
@@ -7,7 +8,10 @@ import Messages from 'components/Messages'
 import Sender from 'components/Sender'
 import styles from './style'
 
-class Conversation extends React.Component {
+import type { State } from './state'
+import type { Props } from './props'
+
+class Conversation extends React.Component<Props, State> {
   state = {
     visible: false,
   }
@@ -19,7 +23,7 @@ class Conversation extends React.Component {
   }
 
   render() {
-    let style = {
+    let style: {} = {
       ...styles.conversationContainer,
     }
 
@@ -58,19 +62,8 @@ class Conversation extends React.Component {
   }
 }
 
-Conversation.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  sendMessage: PropTypes.func,
-  senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string,
-  toggleChat: PropTypes.func,
-  showCloseButton: PropTypes.bool,
-  disabledInput: PropTypes.bool,
-}
-
-const mapStateToProps = state => ({
-  fullscreen: state.behavior.get('fullscreen'),
+const mapStateToProps = ({ behavior }) => ({
+  fullscreen: behavior.fullscreen,
 })
 
 export default connect(mapStateToProps)(Conversation)

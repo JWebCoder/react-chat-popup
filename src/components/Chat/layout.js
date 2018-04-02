@@ -1,6 +1,7 @@
+// @flow
+
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 
 import Conversation from 'components/Conversation'
 import Launcher from 'components/Launcher'
@@ -8,7 +9,14 @@ import { setFullscreen, unsetFullscreen } from 'store/actions/dispatcher'
 import styles from './style'
 import _ from 'lodash'
 
-class ChatLayout extends React.Component {
+import type { Props } from './props'
+
+type State = {
+  width: number,
+  height: number,
+}
+
+class ChatLayout extends React.Component<Props, State> {
   state = {
     width: 0,
     height: 0,
@@ -33,7 +41,7 @@ class ChatLayout extends React.Component {
   }
 
   render() {
-    let style = {}
+    let style: {[key: string]: any} = {}
     if (this.state.width === 0) {
       style = {
         display: 'none',
@@ -74,20 +82,6 @@ class ChatLayout extends React.Component {
       </div>
     )
   }
-}
-
-ChatLayout.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  onSendMessage: PropTypes.func,
-  onToggleConversation: PropTypes.func,
-  showChat: PropTypes.bool,
-  senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string,
-  showCloseButton: PropTypes.bool,
-  disabledInput: PropTypes.bool,
-  fullScreenMode: PropTypes.bool,
-  badge: PropTypes.number,
 }
 
 const mapStateToProps = ({ behavior }) => ({
