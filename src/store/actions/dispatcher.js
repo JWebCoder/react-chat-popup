@@ -1,3 +1,5 @@
+// @flow
+
 import store from '../store'
 import * as actions from './index'
 
@@ -17,7 +19,7 @@ export function renderCustomComponent(component, props, showAvatar = false) {
   store.dispatch(actions.renderCustomComponent(component, props, showAvatar))
 }
 
-export function toggleChat() {
+export function toggleChat(): void {
   store.dispatch(actions.toggleChat())
 }
 
@@ -29,7 +31,7 @@ export function dropMessages() {
   store.dispatch(actions.dropMessages())
 }
 
-export function setFullscreen() {
+export function setFullscreen(): void {
   store.dispatch(actions.setFullscreen())
 }
 

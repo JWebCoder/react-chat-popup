@@ -48,8 +48,8 @@ Header.propTypes = {
   showCloseButton: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
-  fullscreen: state.behavior.get('fullscreen'),
+const mapStateToProps = ({ behavior }) => ({
+  fullscreen: behavior.fullscreen,
 })
 
 export default connect(mapStateToProps)(Header)

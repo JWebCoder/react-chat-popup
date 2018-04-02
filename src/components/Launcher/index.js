@@ -36,7 +36,9 @@ Launcher.propTypes = {
   badge: PropTypes.number,
 }
 
-export default connect(state => ({
-  chatOpened: state.behavior.get('showChat'),
-  fullscreen: state.behavior.get('fullscreen'),
-}))(Launcher)
+const mapStateToProps = ({ behavior }) => ({
+  chatOpened: behavior.showChat,
+  fullscreen: behavior.fullscreen,
+})
+
+export default connect(mapStateToProps)(Launcher)

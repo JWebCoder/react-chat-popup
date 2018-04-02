@@ -1,10 +1,22 @@
+// @flow
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import { setFullscreen, toggleChat, addUserMessage } from 'store/actions/dispatcher'
 
 import ChatLayout from './layout'
 
-class Chat extends React.Component {
+type Props = {
+  fullScreenMode: boolean,
+  handleNewUserMessage: (message:string) => void,
+  title: string,
+  subtitle: string,
+  senderPlaceHolder: string,
+  profileAvatar: string,
+  showCloseButton: boolean,
+  badge: number,
+}
+
+class Chat extends React.Component<Props> {
   componentDidMount() {
     if (this.props.fullScreenMode) {
       setFullscreen()
@@ -15,14 +27,11 @@ class Chat extends React.Component {
     toggleChat()
   }
 
-  handleMessageSubmit = (event) => {
-    event.preventDefault()
-    const userInput = event.target.message.value
-    if (userInput) {
-      addUserMessage(userInput)
-      this.props.handleNewUserMessage(userInput)
+  handleMessageSubmit = (message: string) => {
+    if (message) {
+      addUserMessage(message)
+      this.props.handleNewUserMessage(message)
     }
-    event.target.message.value = ''
   }
 
   render() {
@@ -40,17 +49,6 @@ class Chat extends React.Component {
       />
     )
   }
-}
-
-Chat.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  handleNewUserMessage: PropTypes.func.isRequired,
-  senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string,
-  showCloseButton: PropTypes.bool,
-  fullScreenMode: PropTypes.bool,
-  badge: PropTypes.number,
 }
 
 export default Chat
