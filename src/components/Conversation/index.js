@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import Header from 'components/Header'
 import Messages from 'components/Messages'
 import Sender from 'components/Sender'
+import Div from 'components/Div'
 import styles from './style'
 
 import type { State } from './state'
@@ -42,7 +43,7 @@ class Conversation extends React.Component<Props, State> {
     }
 
     return (
-      <div style={style}>
+      <Div style={style}>
         <Header
           title={this.props.title}
           subtitle={this.props.subtitle}
@@ -57,7 +58,7 @@ class Conversation extends React.Component<Props, State> {
           placeholder={this.props.senderPlaceHolder}
           disabledInput={this.props.disabledInput}
         />
-      </div>
+      </Div>
     )
   }
 }

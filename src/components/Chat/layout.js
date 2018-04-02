@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import Conversation from 'components/Conversation'
 import Launcher from 'components/Launcher'
+import Div from 'components/Div'
 import { setFullscreen, unsetFullscreen } from 'store/actions/dispatcher'
 import styles from './style'
 import _ from 'lodash'
@@ -60,7 +61,7 @@ class ChatLayout extends React.Component<Props, State> {
     }
 
     return (
-      <div style={style}>
+      <Div style={style}>
         {
           this.props.showChat &&
           <Conversation
@@ -79,7 +80,7 @@ class ChatLayout extends React.Component<Props, State> {
           toggle={this.props.onToggleConversation}
           badge={this.props.badge}
         />
-      </div>
+      </Div>
     )
   }
 }
