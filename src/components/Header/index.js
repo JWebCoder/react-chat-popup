@@ -4,6 +4,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Div from 'components/Div'
+import Button from 'components/Button'
+import Img from 'components/Image'
 
 import close from '../../../assets/clear-button.svg'
 import styles from './style'
@@ -44,9 +46,9 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Pr
     <Div style={headerStyle}>
       {
         showCloseButton &&
-        <button style={closeButtonStyle} onClick={toggleChat}>
-          <img src={close} style={styles.closeIcon} alt="close" />
-        </button>
+        <Button style={closeButtonStyle} onClick={toggleChat}>
+          <Img src={close} style={styles.closeIcon} alt="close" />
+        </Button>
       }
       <h4 style={titleStyle}>{title}</h4>
       <span>{subtitle}</span>

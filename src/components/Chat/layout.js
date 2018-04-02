@@ -10,6 +10,7 @@ import { setFullscreen, unsetFullscreen } from 'store/actions/dispatcher'
 import styles from './style'
 import _ from 'lodash'
 
+import type { StoreState } from 'store/store'
 import type { Props } from './props'
 
 type State = {
@@ -85,7 +86,7 @@ class ChatLayout extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = ({ behavior }) => ({
+const mapStateToProps = ({ behavior }: StoreState) => ({
   showChat: behavior.showChat,
   disabledInput: behavior.disabledInput,
   fullscreen: behavior.fullscreen,

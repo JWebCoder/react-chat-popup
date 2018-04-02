@@ -7,7 +7,19 @@ import { connect } from 'react-redux'
 import send from '../../../assets/send_button.svg'
 import styles from './style'
 
-class Sender extends React.Component {
+import type { StoreState } from 'store/store'
+type Props = {
+  placeholder: string,
+  disabledInput: boolean,
+  fullscreen: boolean,
+  sendMessage: (message: string) => void,
+}
+
+type State = {
+  message: string,
+}
+
+class Sender extends React.Component<Props, State> {
   state = {
     message: '',
   }
@@ -70,7 +82,7 @@ Sender.propTypes = {
   disabledInput: PropTypes.bool,
 }
 
-const mapStateToProps = ({ behavior }) => ({
+const mapStateToProps = ({ behavior }: StoreState) => ({
   fullscreen: behavior.fullscreen,
 })
 
