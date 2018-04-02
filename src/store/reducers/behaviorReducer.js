@@ -8,9 +8,13 @@ export type Behavior = {
   fullscreen: boolean
 }
 
+type Action = {
+  type: string,
+}
+
 const initialState: Behavior = { showChat: false, disabledInput: false, fullscreen: false }
 
-export default function reducer(state: Behavior = initialState, action: any) {
+export default function reducer(state: Behavior = initialState, action: Action) {
   switch (action.type) {
     case actionTypes.TOGGLE_CHAT: {
       return {

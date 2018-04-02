@@ -1,3 +1,5 @@
+// @flow
+
 export const TOGGLE_CHAT = 'TOGGLE_CHAT'
 export const TOGGLE_INPUT_DISABLED = 'TOGGLE_INPUT_DISABLED'
 export const ADD_NEW_USER_MESSAGE = 'ADD_NEW_USER_MESSAGE'
