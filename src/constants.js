@@ -1,42 +1,23 @@
-import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+// @flow
 
-export const MESSAGE_SENDER = {
+export const MESSAGE_SENDER: {
+  CLIENT: string,
+  RESPONSE: string,
+} = {
   CLIENT: 'client',
-  RESPONSE: 'response'
-};
+  RESPONSE: 'response',
+}
 
-export const MESSAGES_TYPES = {
+export const MESSAGES_TYPES: {
+  TEXT: string,
+  SNIPPET: {
+    LINK: string,
+  },
+  CUSTOM_COMPONENT: string
+} = {
   TEXT: 'text',
   SNIPPET: {
-    LINK: 'snippet'
+    LINK: 'snippet',
   },
-  CUSTOM_COMPONENT: 'component'
-};
-
-export const PROP_TYPES = {
-  MESSAGE: ImmutablePropTypes.contains({
-    type: PropTypes.oneOf([
-      MESSAGES_TYPES.TEXT,
-      MESSAGES_TYPES.SNIPPET.LINK
-    ]),
-    text: PropTypes.string,
-    sender: PropTypes.oneOf([
-      MESSAGE_SENDER.CLIENT,
-      MESSAGE_SENDER.RESPONSE
-    ])
-  }),
-
-  SNIPPET: ImmutablePropTypes.contains({
-    type: PropTypes.oneOf([
-      MESSAGES_TYPES.TEXT,
-      MESSAGES_TYPES.SNIPPET.LINK
-    ]),
-    title: PropTypes.string,
-    link: PropTypes.string,
-    sender: PropTypes.oneOf([
-      MESSAGE_SENDER.CLIENT,
-      MESSAGE_SENDER.RESPONSE
-    ])
-  })
-};
+  CUSTOM_COMPONENT: 'component',
+}

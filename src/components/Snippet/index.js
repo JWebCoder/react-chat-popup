@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react'
-import { PROP_TYPES } from 'constants'
+// @flow
+
+import * as React from 'react'
 
 import styles from './styles'
 
-class Snippet extends PureComponent {
+class Snippet extends React.PureComponent<any> {
   render() {
     return (
       <div style={styles.snippet}>
@@ -18,10 +19,6 @@ class Snippet extends PureComponent {
       </div>
     )
   }
-}
-
-Snippet.propTypes = {
-  message: PROP_TYPES.SNIPPET,
 }
 
 export default Snippet
