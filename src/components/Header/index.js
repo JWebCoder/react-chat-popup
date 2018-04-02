@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import Div from 'components/Div'
 import Button from 'components/Button'
 import Img from 'components/Image'
+import ChatTitle from 'components/ChatTitle'
+import ChatSubTitle from 'components/ChatSubTitle'
 
 import close from '../../../assets/clear-button.svg'
 import styles from './style'
@@ -23,7 +25,6 @@ type Props = {
 const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Props) => {
   let headerStyle = styles.header
   let closeButtonStyle = styles.closeButton
-  let titleStyle = styles.title
 
   if (fullscreen) {
     headerStyle = {
@@ -35,11 +36,6 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Pr
       ...closeButtonStyle,
       ...styles.fullscreenCloseButton,
     }
-
-    titleStyle = {
-      ...titleStyle,
-      ...styles.fullscreenTitle,
-    }
   }
 
   return (
@@ -50,8 +46,8 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Pr
           <Img src={close} style={styles.closeIcon} alt="close" />
         </Button>
       }
-      <h4 style={titleStyle}>{title}</h4>
-      <span>{subtitle}</span>
+      <ChatTitle title={title}/>
+      <ChatSubTitle subTitle={subtitle}/>
     </Div>
   )
 }

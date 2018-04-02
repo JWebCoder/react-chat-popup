@@ -1,6 +1,13 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const styles = {
+const styles: {
+  messagesContainer: {},
+  fullscreenMessagesContainer: {},
+  avatar: {},
+  message: {},
+} = {
   messagesContainer: {
     backgroundColor: colors.white,
     height: '50vh',

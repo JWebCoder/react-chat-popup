@@ -1,6 +1,11 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const styles = {
+const styles: {
+  launcher: {},
+  closeLauncher: {},
+} = {
   launcher: {
     alignSelf: 'flex-end',
     backgroundColor: colors.turqois1,

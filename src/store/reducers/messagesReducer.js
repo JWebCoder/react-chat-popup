@@ -1,3 +1,5 @@
+// @flow
+
 import { MESSAGE_SENDER } from 'constants'
 
 import {
@@ -9,25 +11,42 @@ import * as actionTypes from '../actions/actionTypes'
 
 export type Messages = []
 
-const initialState: Messages = []
+type Action = {
+  type: string,
+  text?: string,
+  link?: string,
+  component?: {},
+  props?: {},
+  showAvatar?: boolean,
+}
 
-export default function reducer(state = initialState, action) {
+const initialState: Messages[] = []
+
+export default function reducer(state: Messages[] = initialState, action: Action) {
   switch (action.type) {
     case actionTypes.ADD_NEW_USER_MESSAGE: {
-      state.push(createNewMessage(action.text, MESSAGE_SENDER.CLIENT))
-      return [...state]
+      return [
+        ...state,
+        createNewMessage(action.text, MESSAGE_SENDER.CLIENT),
+      ]
     }
     case actionTypes.ADD_NEW_RESPONSE_MESSAGE: {
-      state.push(createNewMessage(action.text, MESSAGE_SENDER.RESPONSE))
-      return [...state]
+      return [
+        ...state,
+        createNewMessage(action.text, MESSAGE_SENDER.RESPONSE),
+      ]
     }
     case actionTypes.ADD_NEW_LINK_SNIPPET: {
-      state.push(createLinkSnippet(action.link, MESSAGE_SENDER.RESPONSE))
-      return [...state]
+      return [
+        ...state,
+        createLinkSnippet(action.link, MESSAGE_SENDER.RESPONSE),
+      ]
     }
     case actionTypes.ADD_COMPONENT_MESSAGE: {
-      state.push(createComponentMessage(action.component, action.props, action.showAvatar))
-      return [...state]
+      return [
+        ...state,
+        createComponentMessage(action.component, action.props, action.showAvatar),
+      ]
     }
     case actionTypes.DROP_MESSAGES: {
       return []
