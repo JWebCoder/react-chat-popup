@@ -7,13 +7,13 @@ import ChatLayout from './layout'
 
 type Props = {
   fullScreenMode: boolean,
-  handleNewUserMessage: (message:string) => void,
   title: string,
   subtitle: string,
   senderPlaceHolder: string,
   profileAvatar: string,
   showCloseButton: boolean,
   badge: number,
+  handleNewUserMessage: (message:string) => void,
 }
 
 class Chat extends React.Component<Props> {

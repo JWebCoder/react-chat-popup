@@ -1,7 +1,11 @@
+// @flow
+
 import { createStore, combineReducers } from 'redux'
 
 import behavior from './reducers/behaviorReducer'
 import messages from './reducers/messagesReducer'
+import type { Behavior } from './reducers/behaviorReducer'
+import type { Messages } from './reducers/messagesReducer'
 
 const reducer = combineReducers({ behavior, messages })
 
@@ -12,3 +16,8 @@ export default createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 /* eslint-enable */
+
+export type StoreState = {
+  behavior: Behavior,
+  messages: Messages,
+}

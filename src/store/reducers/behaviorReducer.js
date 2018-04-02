@@ -1,8 +1,16 @@
+// @flow
+
 import * as actionTypes from '../actions/actionTypes'
 
-const initialState = { showChat: false, disabledInput: false, fullscreen: false }
+export type Behavior = {
+  showChat: boolean,
+  disabledInput: boolean,
+  fullscreen: boolean
+}
 
-export default function reducer(state = initialState, action) {
+const initialState: Behavior = { showChat: false, disabledInput: false, fullscreen: false }
+
+export default function reducer(state: Behavior = initialState, action: any) {
   switch (action.type) {
     case actionTypes.TOGGLE_CHAT: {
       return {

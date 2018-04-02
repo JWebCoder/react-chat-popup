@@ -9,6 +9,7 @@ import Sender from 'components/Sender'
 import Div from 'components/Div'
 import styles from './style'
 
+import type { StoreState } from 'store/store'
 import type { State } from './state'
 import type { Props } from './props'
 
@@ -63,7 +64,7 @@ class Conversation extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = ({ behavior }) => ({
+const mapStateToProps = ({ behavior }: StoreState) => ({
   fullscreen: behavior.fullscreen,
 })
 

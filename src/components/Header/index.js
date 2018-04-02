@@ -1,11 +1,24 @@
+// @flow
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
+import Div from 'components/Div'
 
 import close from '../../../assets/clear-button.svg'
 import styles from './style'
 
-const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }) => {
+import type { StoreState } from 'store/store'
+
+type Props = {
+  title: string,
+  subtitle: string,
+  showCloseButton: boolean,
+  fullscreen: boolean,
+  toggleChat: () => void,
+}
+
+const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Props) => {
   let headerStyle = styles.header
   let closeButtonStyle = styles.closeButton
   let titleStyle = styles.title
@@ -28,7 +41,7 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }) =>
   }
 
   return (
-    <div style={headerStyle}>
+    <Div style={headerStyle}>
       {
         showCloseButton &&
         <button style={closeButtonStyle} onClick={toggleChat}>
@@ -37,18 +50,11 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }) =>
       }
       <h4 style={titleStyle}>{title}</h4>
       <span>{subtitle}</span>
-    </div>
+    </Div>
   )
 }
 
-Header.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  toggleChat: PropTypes.func,
-  showCloseButton: PropTypes.bool,
-}
-
-const mapStateToProps = ({ behavior }) => ({
+const mapStateToProps = ({ behavior }: StoreState) => ({
   fullscreen: behavior.fullscreen,
 })
 
