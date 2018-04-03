@@ -31,6 +31,7 @@ export default function reducer(state: Messages[] = initialState, action: Action
       ]
     }
     case actionTypes.ADD_NEW_RESPONSE_MESSAGE: {
+      console.log(action)
       return [
         ...state,
         createNewMessage(action.text || '', MESSAGE_SENDER.RESPONSE),
