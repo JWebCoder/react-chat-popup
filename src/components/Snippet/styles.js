@@ -1,6 +1,8 @@
+// @flow
+
 import { colors } from 'styles/variables'
 
-const messageBubble = (color) => ({
+const messageBubble = (color: string): {} => ({
   backgroundColor: color,
   borderRadius: '10px',
   padding: '15px',
@@ -8,7 +10,12 @@ const messageBubble = (color) => ({
   textAlign: 'left',
 })
 
-const styles = {
+const styles:{
+  snippet: {},
+  snippetTitle: {},
+  snippetDetails: {},
+  link: {},
+} = {
   snippet: {
     ...messageBubble(colors.grey2),
   },

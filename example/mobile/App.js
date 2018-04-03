@@ -1,0 +1,37 @@
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { Chat, addResponseMessage } from 'react-chat-popup'
+
+export default class App extends React.Component {
+  componentDidMount() {
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+  }
+
+  handleNewUserMessage = (newMessage) => {
+    addResponseMessage(newMessage)
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+        <Text>Changes you make will automatically reload.</Text>
+        <Text>Shake your phone to open the developer menu.</Text>
+        <Chat
+          title="Blue-Infinity"
+          subtitle="Next-Gen Bot"
+          handleNewUserMessage={this.handleNewUserMessage}
+        />
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})

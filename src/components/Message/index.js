@@ -24,7 +24,7 @@ class Message extends React.PureComponent<Props> {
 
     return (
       <Div style={styles.message[this.props.message.sender]}>
-        <HTMLDiv HTML={sanitizedHTML} />
+        <HTMLDiv HTML={sanitizedHTML} style={{flex: 1}}/>
       </Div>
     )
   }
