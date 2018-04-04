@@ -7,7 +7,6 @@ const messageBubble = (color: string): {} => ({
   borderRadius: 10,
   paddingHorizontal: 15,
   maxWidth: 215,
-  textAlign: 'left',
 })
 
 const styles: {
@@ -19,7 +18,7 @@ const styles: {
   message: {
     client: {
       ...messageBubble(colors.turqois2),
-      marginLeft: 'auto',
+      alignSelf: 'flex-end',
     },
     response: {
       ...messageBubble(colors.grey2),

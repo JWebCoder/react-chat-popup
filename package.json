@@ -32,6 +32,7 @@
     "marked": "^0.3.6",
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "^2.1.0",
+    "react-native-webview-autoheight": "^1.0.5",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2"
   },

@@ -20,7 +20,6 @@ type Props = {
 }
 
 const Launcher = ({ toggle, chatOpened, badge, fullscreen }: Props) => {
-  console.log('hello')
   let launcherStyle = {
     ...styles.launcher,
   }

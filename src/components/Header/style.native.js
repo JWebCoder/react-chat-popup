@@ -13,10 +13,6 @@ const styles: {
 } = {
   header: {
     backgroundColor: colors.turqois1,
-    color: colors.white,
-    display: 'flex',
-    flexDirection: 'column',
-    textAlign: 'center',
     paddingTop: 15,
     paddingBottom: 25,
   },
@@ -43,8 +39,6 @@ const styles: {
   },
   fullscreenCloseButton: {
     backgroundColor: colors.turqois1,
-    border: 0,
-    display: 'block',
     position: 'absolute',
     right: 10,
     top: 20,

@@ -54,10 +54,15 @@ class Messages extends React.Component<Props> {
       <ScrollView
         id="messages"
         style={messagesContainerStyle}
-        contentContainerStyle={messagesContainerStyle}
+        contentContainerStyle={styles.messagesInner}
         ref={ref => { this.scrollView = ref }}
         onContentSizeChange={
           (contentWidth: number, contentHeight: number) => {
+            this.scrollView.scrollToEnd({animated: true})
+          }
+        }
+        onLayout={
+          () => {
             this.scrollView.scrollToEnd({animated: true})
           }
         }

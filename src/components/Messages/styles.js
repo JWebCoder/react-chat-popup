@@ -7,6 +7,7 @@ const styles: {
   fullscreenMessagesContainer: {},
   avatar: {},
   message: {},
+  messagesInner: {},
 } = {
   messagesContainer: {
     backgroundColor: colors.white,
@@ -33,6 +34,8 @@ const styles: {
     display: 'flex',
     fontSize: '14px',
   },
+
+  messagesInner: {},
 }
 
 export default styles
