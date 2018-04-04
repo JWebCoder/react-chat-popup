@@ -11,11 +11,9 @@ const styles: {
 } = {
   sender: {
     alignItems: 'center',
-    display: 'flex',
     backgroundColor: colors.grey2,
     height: 45,
     padding: 5,
-    borderRadius: 10,
   },
 
   newMessage: {
@@ -26,11 +24,10 @@ const styles: {
   },
 
   send: {
-    background: colors.grey2,
+    backgroundColor: colors.grey2,
   },
 
   fullscreenSend: {
-    borderRadius: 0,
     flexShrink: 0,
   },
 

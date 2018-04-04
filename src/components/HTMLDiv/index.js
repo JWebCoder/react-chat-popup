@@ -2,7 +2,13 @@
 
 import * as React from 'react'
 
-const HTMLDiv = (props: {HTML: string}) => {
+type Props = {
+  HTML: string,
+  onChangeHeight: (height: number) => void,
+  target: string
+}
+
+const HTMLDiv = (props: Props) => {
   const HTML = props.HTML
 
   const noHTMLProps = {
@@ -10,6 +16,8 @@ const HTMLDiv = (props: {HTML: string}) => {
   }
 
   delete noHTMLProps.HTML
+  delete noHTMLProps.target
+  delete noHTMLProps.onChangeHeight
 
   return (
     <div {...noHTMLProps} dangerouslySetInnerHTML={{ __html: HTML }}/>

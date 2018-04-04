@@ -8,6 +8,7 @@ import Launcher from 'components/Launcher'
 import Div from 'components/Div'
 import { setFullscreen } from 'store/actions/dispatcher'
 import styles from './style'
+import { KeyboardAvoidingView } from 'react-native'
 
 import type { StoreState } from 'store/store'
 import type { Props } from './props'
@@ -36,7 +37,7 @@ class ChatLayout extends React.Component<Props, State> {
       ...styles.widgetContainer,
     }
 
-    if (this.props.fullscreen && this.props.showChat) {
+    if (this.props.showChat) {
       style = {
         ...style,
         ...styles.fullscreen,

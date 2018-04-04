@@ -20,9 +20,10 @@ const Input = ({placeholder, disabledInput, message, onChangeMessage, handleKeyP
     editable={!disabledInput}
     autoFocus
     autoComplete={true}
+    returnKeyType="send"
     value={message}
-    onChange={onChangeMessage}
-    onKeyPress={handleKeyPress}
+    onChangeText={(text: string) => (onChangeMessage({currentTarget: {value: text}}))}
+    onSubmitEditing={() => { handleKeyPress({key: 'Enter'}) }}
   />
 )
 

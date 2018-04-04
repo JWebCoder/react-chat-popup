@@ -1,9 +1,25 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, YellowBox } from 'react-native'
 import { Chat, addResponseMessage } from 'react-chat-popup'
+
+if (__DEV__) {
+  YellowBox.ignoreWarnings([
+    'Warning: componentWillMount is deprecated',
+    'Warning: componentWillUpdate is deprecated',
+    'Warning: componentWillReceiveProps is deprecated'
+  ])
+}
 
 export default class App extends React.Component {
   componentDidMount() {
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
     addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
   }
 

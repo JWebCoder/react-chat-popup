@@ -34,7 +34,7 @@ class Sender extends React.Component<Props, State> {
   }
 
   sendMessage = () => {
-    this.props.sendMessage(this.state.message)
+    this.props.sendMessage(this.state.message.trim())
     this.setState({
       message: '',
     })

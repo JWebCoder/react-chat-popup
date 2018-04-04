@@ -7,16 +7,15 @@ const styles: {
   fullscreenMessagesContainer: {},
   avatar: {},
   message: {},
+  messagesInner: {},
 } = {
   messagesContainer: {
     backgroundColor: colors.white,
-    overflowY: 'scroll',
     paddingTop: 10,
   },
 
   fullscreenMessagesContainer: {
     flex: 1,
-    height: 'auto',
   },
 
   avatar: {
@@ -28,7 +27,9 @@ const styles: {
 
   message: {
     margin: 10,
-    fontSize: 14,
+  },
+  messagesInner: {
+    paddingBottom: 10,
   },
 }
 

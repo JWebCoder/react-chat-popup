@@ -14,17 +14,31 @@ type Props = {
   }
 }
 
-class Message extends React.PureComponent<Props> {
+type State = {
+  height: number
+}
+
+class Message extends React.PureComponent<Props, State> {
+  state = {
+    height: 0,
+  }
+
+  onChangeHeight = (height: number) => {
+    this.setState({
+      height,
+    })
+  }
+
   render() {
     const {
       text,
     } = this.props.message
 
     const sanitizedHTML = marked.parse(text, { sanitize: true })
-
+    console.log('height', this.props.message.sender, this.state.height)
     return (
-      <Div style={styles.message[this.props.message.sender]}>
-        <HTMLDiv HTML={sanitizedHTML} style={{flex: 1}}/>
+      <Div style={{...styles.message[this.props.message.sender], ...{height: this.state.height || 'auto'}}}>
+        <HTMLDiv HTML={sanitizedHTML} onChangeHeight={this.onChangeHeight} target={this.props.message.sender}/>
       </Div>
     )
   }
