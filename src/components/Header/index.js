@@ -9,7 +9,7 @@ import Img from 'components/Image'
 import ChatTitle from 'components/ChatTitle'
 import ChatSubTitle from 'components/ChatSubTitle'
 
-import close from '../../../assets/clear-button.svg'
+import close from '../../../assets/clear-button.png'
 import styles from './style'
 
 import type { StoreState } from 'store/store'
@@ -32,10 +32,7 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Pr
       ...styles.fullscreenHeader,
     }
 
-    closeButtonStyle = {
-      ...closeButtonStyle,
-      ...styles.fullscreenCloseButton,
-    }
+    closeButtonStyle = styles.fullscreenCloseButton
   }
 
   return (

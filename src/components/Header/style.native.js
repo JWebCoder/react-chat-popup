@@ -13,7 +13,7 @@ const styles: {
 } = {
   header: {
     backgroundColor: colors.turqois1,
-    paddingTop: 15,
+    paddingTop: 50,
     paddingBottom: 25,
   },
   fullscreenHeader: {
@@ -41,8 +41,9 @@ const styles: {
     backgroundColor: colors.turqois1,
     position: 'absolute',
     right: 10,
-    top: 20,
+    top: 55,
     width: 40,
+    zIndex: 1,
   },
 }
 

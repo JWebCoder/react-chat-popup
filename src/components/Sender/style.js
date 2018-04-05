@@ -4,7 +4,6 @@ import { colors } from 'styles/variables'
 
 const styles: {
   sender: {},
-  newMessage: {},
   send: {},
   fullscreenSend: {},
   sendIcon: {},
@@ -16,15 +15,6 @@ const styles: {
     height: '45px',
     padding: '5px',
     borderRadius: '0 0 10px 10px',
-  },
-
-  newMessage: {
-    width: '100%',
-    border: 0,
-    backgroundColor: colors.grey2,
-    height: '30px',
-    paddingLeft: '15px',
-    outline: 'none',
   },
 
   send: {

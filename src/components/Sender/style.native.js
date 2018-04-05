@@ -12,27 +12,21 @@ const styles: {
   sender: {
     alignItems: 'center',
     backgroundColor: colors.grey2,
-    height: 45,
-    padding: 5,
-  },
-
-  newMessage: {
-    width: '100%',
-    backgroundColor: colors.grey2,
-    height: 30,
-    paddingLeft: 15,
+    paddingHorizontal: 5,
+    paddingTop: 5,
+    paddingBottom: 25,
+    flexDirection: 'row',
   },
 
   send: {
     backgroundColor: colors.grey2,
   },
 
-  fullscreenSend: {
-    flexShrink: 0,
-  },
+  fullscreenSend: {},
 
   sendIcon: {
     height: 25,
+    width: 25,
   },
 }
 

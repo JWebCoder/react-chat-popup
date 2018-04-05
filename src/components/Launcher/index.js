@@ -6,8 +6,8 @@ import Badge from 'components/Badge'
 import Img from 'components/Image'
 import Button from 'components/Button'
 
-import openLauncher from '../../../assets/launcher_button.svg'
-import close from '../../../assets/clear-button.svg'
+import openLauncher from '../../../assets/launcher_button.png'
+import close from '../../../assets/clear-button.png'
 import styles from './style'
 
 import type { StoreState } from 'store/store'

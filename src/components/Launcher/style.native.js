@@ -16,8 +16,11 @@ const styles: {
     shadowRadius: 2,
     elevation: 1,
     height: 60,
-    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 10,
     width: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   closeLauncher: {
     width: 20,

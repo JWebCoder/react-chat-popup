@@ -2,12 +2,8 @@
 
 import * as React from 'react'
 import { connect } from 'react-redux'
-import Div from 'components/Div'
-import Button from 'components/Button'
-import Img from 'components/Image'
-import Input from 'components/Input'
+import Send from './Send'
 
-import send from '../../../assets/send_button.svg'
 import styles from './style'
 
 import type { StoreState } from 'store/store'
@@ -48,7 +44,6 @@ class Sender extends React.Component<Props, State> {
 
   render() {
     let {
-      sendMessage,
       placeholder,
       disabledInput,
       fullscreen,
@@ -66,18 +61,19 @@ class Sender extends React.Component<Props, State> {
     }
 
     return (
-      <Div style={styles.sender} onSubmit={sendMessage}>
-        <Input
-          placeholder={placeholder}
-          disabledInput={disabledInput}
-          message={this.state.message}
-          onChangeMessage={this.onChangeMessage}
-          handleKeyPress={this.handleKeyPress}
-        />
-        <Button style={sendStyle} onClick={this.sendMessage}>
-          <Img src={send} style={styles.sendIcon} alt="send" />
-        </Button>
-      </Div>
+      <Send
+        placeholder={placeholder}
+        disabledInput={disabledInput}
+        message={this.state.message}
+        onChangeMessage={this.onChangeMessage}
+        handleKeyPress={this.handleKeyPress}
+        sendMessage={this.sendMessage}
+        styles={{
+          sender: styles.sender,
+          send: sendStyle,
+          sendIcon: styles.sendIcon,
+        }}
+      />
     )
   }
 }

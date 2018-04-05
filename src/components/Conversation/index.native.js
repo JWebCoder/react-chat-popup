@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import Header from 'components/Header'
 import Messages from 'components/Messages'
 import Sender from 'components/Sender'
-import Div from 'components/Div'
 import styles from './style'
 
 import { KeyboardAvoidingView } from 'react-native'
