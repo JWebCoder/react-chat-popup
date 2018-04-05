@@ -53,7 +53,15 @@ class Sender extends React.Component<Props, State> {
       ...styles.send,
     }
 
+    let senderStyle = {
+      ...styles.sender,
+    }
+
     if (fullscreen) {
+      senderStyle = {
+        ...senderStyle,
+        ...styles.fullscreenSender,
+      }
       sendStyle = {
         ...sendStyle,
         ...styles.fullscreenSend,
@@ -69,7 +77,7 @@ class Sender extends React.Component<Props, State> {
         handleKeyPress={this.handleKeyPress}
         sendMessage={this.sendMessage}
         styles={{
-          sender: styles.sender,
+          sender: senderStyle,
           send: sendStyle,
           sendIcon: styles.sendIcon,
         }}

@@ -4,6 +4,7 @@ import { colors } from 'styles/variables'
 
 const styles: {
   sender: {},
+  fullscreenSender: {},
   newMessage: {},
   send: {},
   fullscreenSend: {},
@@ -17,6 +18,8 @@ const styles: {
     paddingBottom: 25,
     flexDirection: 'row',
   },
+
+  fullscreenSender: {},
 
   send: {
     backgroundColor: colors.grey2,

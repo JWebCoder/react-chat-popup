@@ -4,6 +4,7 @@ import { colors } from 'styles/variables'
 
 const styles: {
   sender: {},
+  fullscreenSender: {},
   send: {},
   fullscreenSend: {},
   sendIcon: {},
@@ -15,6 +16,10 @@ const styles: {
     height: '45px',
     padding: '5px',
     borderRadius: '0 0 10px 10px',
+  },
+
+  fullscreenSender: {
+    borderRadius: 0,
   },
 
   send: {
