@@ -13,8 +13,9 @@ const styles: {
 } = {
   header: {
     backgroundColor: colors.turqois1,
-    paddingTop: 50,
-    paddingBottom: 25,
+    paddingTop: 45,
+    paddingBottom: 10,
+    paddingHorizontal: 10,
   },
   fullscreenHeader: {
     flexShrink: 0,
@@ -34,16 +35,20 @@ const styles: {
     display: 'none',
   },
   closeIcon: {
-    width: 20,
-    height: 20,
+    width: 15,
+    height: 15,
   },
   fullscreenCloseButton: {
     backgroundColor: colors.turqois1,
     position: 'absolute',
-    right: 10,
-    top: 55,
+    right: 0,
+    top: 45,
     width: 40,
     zIndex: 1,
+    padding: 10,
+  },
+  headerTitles: {
+    flexDirection: 'row',
   },
 }
 

@@ -12,6 +12,7 @@ const styles: {
     height: '30px',
     paddingLeft: '15px',
     outline: 'none',
+    fontSize: '14px',
   },
 }
 

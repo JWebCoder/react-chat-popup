@@ -36,15 +36,15 @@ export default class MyWebView extends React.Component<Props, State> {
   }
 
   state = {
-    webViewHeight: 16,
+    webViewHeight: 36,
   }
 
   onMessage = (e: SyntheticEvent<any>) => {
     console.log('event', e.nativeEvent)
     this.setState({
-      webViewHeight: parseInt(e.nativeEvent.data, 10),
+      webViewHeight: parseInt(e.nativeEvent.data, 10) + 20,
     })
-    this.props.onChangeHeight(parseInt(e.nativeEvent.data, 10))
+    this.props.onChangeHeight(parseInt(e.nativeEvent.data, 10) + 20)
   }
 
   render() {
@@ -65,7 +65,7 @@ export default class MyWebView extends React.Component<Props, State> {
         javaScriptEnabled={true}
         automaticallyAdjustContentInsets={false}
         scalesPageToFit={false}
-        source={{html: '<style>body,html{background-color:' + color + '; width: 135pt;margin: 0;}div{padding: 2pt 0 2pt 0;}</style><div id="message-container">' + this.props.HTML + '</div>'}}
+        source={{html: '<style>body,html{background-color:' + color + '; width: 135pt;margin: 0;}</style><div id="message-container">' + this.props.HTML + '</div>'}}
         {...this.props}
         style={[{width: 185}, this.props.style || {}, {height: _h}]}
       />

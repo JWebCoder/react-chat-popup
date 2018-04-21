@@ -15,7 +15,7 @@ const styles: {
     backgroundColor: colors.grey2,
     height: '45px',
     padding: '5px',
-    borderRadius: '0 0 10px 10px',
+    borderRadius: '0 0 5px 5px',
   },
 
   fullscreenSender: {

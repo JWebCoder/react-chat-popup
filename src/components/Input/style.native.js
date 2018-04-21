@@ -10,6 +10,7 @@ const styles: {
     backgroundColor: colors.grey2,
     height: 30,
     paddingLeft: 15,
+    fontSize: 14,
   },
 }
 

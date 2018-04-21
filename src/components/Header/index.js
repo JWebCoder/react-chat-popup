@@ -7,7 +7,7 @@ import Div from 'components/Div'
 import Button from 'components/Button'
 import Img from 'components/Image'
 import ChatTitle from 'components/ChatTitle'
-import ChatSubTitle from 'components/ChatSubTitle'
+// import ChatSubTitle from 'components/ChatSubTitle'
 
 import close from '../../../assets/clear-button.png'
 import styles from './style'
@@ -43,8 +43,10 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, fullscreen }: Pr
           <Img src={close} style={styles.closeIcon} alt="close" />
         </Button>
       }
-      <ChatTitle title={title}/>
-      <ChatSubTitle subTitle={subtitle}/>
+      <Div style={styles.headerTitles}>
+        <ChatTitle title={title}/>
+        {/* <ChatSubTitle subTitle={subtitle}/> */}
+      </Div>
     </Div>
   )
 }

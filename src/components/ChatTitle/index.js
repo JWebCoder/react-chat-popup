@@ -14,17 +14,8 @@ type Props = {
 }
 
 const ChatTitle = (props: Props) => {
-  let titleStyle = styles.title
-
-  if (props.fullscreen) {
-    titleStyle = {
-      ...titleStyle,
-      ...styles.fullscreenTitle,
-    }
-  }
-
   return (
-    <Title style={titleStyle} title={props.title}/>
+    <Title style={styles.title} title={props.title}/>
   )
 }
 

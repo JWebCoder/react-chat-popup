@@ -4,7 +4,7 @@ import { colors } from 'styles/variables'
 
 const messageBubble = (color: string): {} => ({
   backgroundColor: color,
-  borderRadius: 10,
+  borderRadius: 5,
   paddingHorizontal: 15,
   maxWidth: 215,
 })

@@ -10,11 +10,9 @@ const styles: {
     fontSize: 24,
     margin: 0,
     color: colors.white,
-    textAlign: 'center',
+    fontWeight: 'normal',
   },
-  fullscreenTitle: {
-    paddingBottom: 15,
-  },
+  fullscreenTitle: {},
 }
 
 export default styles
