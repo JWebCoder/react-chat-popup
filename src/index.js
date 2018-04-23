@@ -1,3 +1,5 @@
+// @flow
+
 import ConnectedChat from 'ConnectedChat'
 import {
   addUserMessage,
@@ -5,7 +7,7 @@ import {
   addResponseChoices,
   addLinkSnippet,
   renderCustomComponent,
-  toggleWidget,
+  toggleChat,
   toggleInputDisabled,
   dropMessages,
 } from 'store/actions/dispatcher'
@@ -17,7 +19,7 @@ export {
   addResponseChoices,
   addLinkSnippet,
   renderCustomComponent,
-  toggleWidget,
+  toggleChat,
   toggleInputDisabled,
   dropMessages,
 }

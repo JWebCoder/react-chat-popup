@@ -34,8 +34,7 @@ export default class App extends React.Component {
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
         <Chat
-          title="Blue-Infinity"
-          subtitle="Next-Gen Bot"
+          title="React chat popup"
           handleNewUserMessage={this.handleNewUserMessage}
         />
       </View>

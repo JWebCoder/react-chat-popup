@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
@@ -5,11 +7,20 @@ import { Provider } from 'react-redux'
 import Chat from 'components/Chat'
 import store from 'store/store'
 
-const ConnectedChat = props =>
+type Props = {
+  fullScreenMode: boolean,
+  title: string,
+  senderPlaceHolder: string,
+  profileAvatar: string,
+  showCloseButton: boolean,
+  badge: number,
+  handleNewUserMessage: (message:string) => void,
+}
+
+const ConnectedChat = (props: Props) =>
   <Provider store={store}>
     <Chat
       title={props.title}
-      subtitle={props.subtitle}
       handleNewUserMessage={props.handleNewUserMessage}
       senderPlaceHolder={props.senderPlaceHolder}
       profileAvatar={props.profileAvatar}

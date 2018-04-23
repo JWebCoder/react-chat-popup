@@ -8,7 +8,6 @@ import ChatLayout from './layout'
 type Props = {
   fullScreenMode: boolean,
   title: string,
-  subtitle: string,
   senderPlaceHolder: string,
   profileAvatar: string,
   showCloseButton: boolean,
@@ -40,7 +39,6 @@ class Chat extends React.Component<Props> {
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
         title={this.props.title}
-        subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
         profileAvatar={this.props.profileAvatar}
         showCloseButton={this.props.showCloseButton}

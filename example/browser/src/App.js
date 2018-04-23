@@ -36,8 +36,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Chat
-          title="Blue-Infinity"
-          subtitle="Next-Gen Bot"
+          title="React chat popup"
           handleNewUserMessage={this.handleNewUserMessage}
         />
       </div>
