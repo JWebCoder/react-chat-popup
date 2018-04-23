@@ -29,7 +29,7 @@ const styles: {
   buttonContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginTop: 15,
   },
   button: {

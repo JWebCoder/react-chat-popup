@@ -36,6 +36,9 @@ class Message extends React.PureComponent<Props, State> {
   choose = (value: string | number) => () => {
     if (!this.state.clicked) {
       this.props.sendMessage(value)
+      this.setState({
+        clicked: true,
+      })
     }
   }
 
