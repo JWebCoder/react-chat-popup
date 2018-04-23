@@ -13,7 +13,7 @@ import type { StoreState } from 'store/store'
 type Message = {
   showAvatar: boolean,
   type: string,
-  component: any,
+  component: React.ComponentType<any>,
   props?: {}
 }
 
@@ -25,12 +25,12 @@ type Props = {
 }
 
 class Messages extends React.Component<Props> {
-  constructor() {
-    super()
-    this.scrollView = null
-  }
+  scrollView: ?HTMLButtonElement
+
   componentDidMount() {
-    this.scrollView.scrollToEnd({animated: true})
+    if (this.scrollView) {
+      this.scrollView.scrollToEnd({animated: true})
+    }
   }
 
   getComponentToRender = (message: Message) => {

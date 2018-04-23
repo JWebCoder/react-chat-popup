@@ -12,7 +12,7 @@ import type { StoreState } from 'store/store'
 type Message = {
   showAvatar: boolean,
   type: string,
-  component: any,
+  component: React.ComponentType<any>,
   props?: {}
 }
 

@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 
 import Chat from 'components/Chat'
@@ -30,20 +29,8 @@ const ConnectedChat = (props: Props) =>
     />
   </Provider>
 
-ConnectedChat.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  handleNewUserMessage: PropTypes.func.isRequired,
-  senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string,
-  showCloseButton: PropTypes.bool,
-  fullScreenMode: PropTypes.bool,
-  badge: PropTypes.number,
-}
-
 ConnectedChat.defaultProps = {
   title: 'Welcome',
-  subtitle: 'This is your chat subtitle',
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,

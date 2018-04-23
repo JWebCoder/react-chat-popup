@@ -13,7 +13,7 @@ const styles: {
     backgroundColor: colors.white,
     height: '50vh',
     maxHeight: '410px',
-    overflowY: 'scroll',
+    overflowY: 'auto',
     paddingTop: '10px',
   },
 

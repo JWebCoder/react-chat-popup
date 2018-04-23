@@ -1,21 +1,20 @@
 // @flow
 
-import { createStore, combineReducers } from 'redux'
+import * as redux from 'redux'
 
 import behavior from './reducers/behaviorReducer'
 import messages from './reducers/messagesReducer'
 import type { Behavior } from './reducers/behaviorReducer'
 import type { Messages } from './reducers/messagesReducer'
 
-const reducer = combineReducers({ behavior, messages })
+const reducer = redux.combineReducers({ behavior, messages })
 
-/* eslint-disable no-underscore-dangle */
-export default createStore(
+export default redux.createStore(
   reducer,
+  {},
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__(),
 )
-/* eslint-enable */
 
 export type StoreState = {
   behavior: Behavior,

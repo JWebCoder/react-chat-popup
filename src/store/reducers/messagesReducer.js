@@ -10,7 +10,7 @@ import {
 } from './helper'
 import * as actionTypes from '../actions/actionTypes'
 
-export type Messages = []
+export type Messages = {}[]
 
 export type Choices = {
   text: string,
@@ -27,9 +27,9 @@ type Action = {
   showAvatar?: boolean,
 }
 
-const initialState: Messages[] = []
+const initialState: Messages = []
 
-export default function reducer(state: Messages[] = initialState, action: Action) {
+export default function reducer(state: Messages = initialState, action: Action) {
   switch (action.type) {
     case actionTypes.ADD_NEW_USER_MESSAGE: {
       return [
