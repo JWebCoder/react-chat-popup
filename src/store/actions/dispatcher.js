@@ -3,12 +3,16 @@
 import store from '../store'
 import * as actions from './index'
 
-export function addUserMessage(text: string) {
+export function addUserMessage(text: string | number) {
   store.dispatch(actions.addUserMessage(text))
 }
 
 export function addResponseMessage(text: string) {
   store.dispatch(actions.addResponseMessage(text))
+}
+
+export function addResponseChoices(object: {text: String, choices: {text: string, value: string | number}[]}) {
+  store.dispatch(actions.addResponseChoices(object))
 }
 
 export function addLinkSnippet(link: {title: string, link: string, target: string}) {

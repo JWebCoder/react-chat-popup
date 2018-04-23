@@ -6,15 +6,22 @@ import {
   createNewMessage,
   createLinkSnippet,
   createComponentMessage,
+  createNewChoicesMessage,
 } from './helper'
 import * as actionTypes from '../actions/actionTypes'
 
 export type Messages = []
 
+export type Choices = {
+  text: string,
+  choices: {text: string, value: string | number}[]
+}
+
 type Action = {
   type: string,
   text?: string,
   link?: {title: string, link: string, target: string},
+  choices?: Choices,
   component?: {},
   props?: {},
   showAvatar?: boolean,
@@ -34,6 +41,12 @@ export default function reducer(state: Messages[] = initialState, action: Action
       return [
         ...state,
         createNewMessage(action.text || '', MESSAGE_SENDER.RESPONSE),
+      ]
+    }
+    case actionTypes.ADD_NEW_RESPONSE_CHOICES: {
+      return [
+        ...state,
+        createNewChoicesMessage(action.choices || {text: '', choices: []}),
       ]
     }
     case actionTypes.ADD_NEW_LINK_SNIPPET: {

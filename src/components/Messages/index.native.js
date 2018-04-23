@@ -21,6 +21,7 @@ type Props = {
   fullscreen: boolean,
   messages: Message[],
   profileAvatar: string,
+  sendMessage: (message: string) => void,
 }
 
 class Messages extends React.Component<Props> {
@@ -37,7 +38,7 @@ class Messages extends React.Component<Props> {
     if (message.type === 'component' && ComponentToRender) {
       return <ComponentToRender {...message.props} />
     }
-    return <ComponentToRender message={message} />
+    return <ComponentToRender message={message} sendMessage={this.props.sendMessage}/>
   };
 
   render() {

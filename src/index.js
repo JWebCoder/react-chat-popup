@@ -2,6 +2,7 @@ import ConnectedChat from 'ConnectedChat'
 import {
   addUserMessage,
   addResponseMessage,
+  addResponseChoices,
   addLinkSnippet,
   renderCustomComponent,
   toggleWidget,
@@ -13,6 +14,7 @@ export {
   ConnectedChat as Chat,
   addUserMessage,
   addResponseMessage,
+  addResponseChoices,
   addLinkSnippet,
   renderCustomComponent,
   toggleWidget,

@@ -14,7 +14,7 @@ export function toggleInputDisabled() {
   }
 }
 
-export function addUserMessage(text: string) {
+export function addUserMessage(text: string | number) {
   return {
     type: actions.ADD_NEW_USER_MESSAGE,
     text,
@@ -25,6 +25,13 @@ export function addResponseMessage(text: string) {
   return {
     type: actions.ADD_NEW_RESPONSE_MESSAGE,
     text,
+  }
+}
+
+export function addResponseChoices(object: {}) {
+  return {
+    type: actions.ADD_NEW_RESPONSE_CHOICES,
+    choices: object,
   }
 }
 

@@ -53,6 +53,7 @@ class Conversation extends React.Component<Props, State> {
         />
         <Messages
           profileAvatar={this.props.profileAvatar}
+          sendMessage={this.props.sendMessage}
         />
         <Sender
           sendMessage={this.props.sendMessage}

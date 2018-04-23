@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Chat, addResponseMessage } from 'react-chat-popup'
+import { Chat, addResponseMessage, addResponseChoices } from 'react-chat-popup'
 
 class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat, i will always respond the same text you entered!')
+    addResponseChoices({
+      text: 'Sure, take notice that this will be shared with you Manager does your manager, do you want to start?',
+      choices: [
+        {
+          text: 'Yes',
+          value: 'yes',
+        },
+        {
+          text: 'No',
+          value: 'no',
+        },
+      ],
+    })
   }
 
   handleNewUserMessage = (newMessage) => {

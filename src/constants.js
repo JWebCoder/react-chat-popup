@@ -13,11 +13,13 @@ export const MESSAGES_TYPES: {
   SNIPPET: {
     LINK: string,
   },
+  CHOICES: string,
   CUSTOM_COMPONENT: string
 } = {
   TEXT: 'text',
   SNIPPET: {
     LINK: 'snippet',
   },
+  CHOICES: 'choices',
   CUSTOM_COMPONENT: 'component',
 }

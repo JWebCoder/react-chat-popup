@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import Conversation from 'components/Conversation'
 import Launcher from 'components/Launcher'
 import Div from 'components/Div'
-import { SafeAreaView } from 'react-native'
 import { setFullscreen } from 'store/actions/dispatcher'
 import styles from './style'
 
