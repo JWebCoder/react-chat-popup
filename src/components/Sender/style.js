@@ -13,7 +13,6 @@ const styles: {
     alignItems: 'center',
     display: 'flex',
     backgroundColor: colors.grey2,
-    height: '45px',
     padding: '5px',
     borderRadius: '0 0 5px 5px',
   },
