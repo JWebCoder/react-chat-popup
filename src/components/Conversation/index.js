@@ -47,7 +47,6 @@ class Conversation extends React.Component<Props, State> {
       <Div style={style}>
         <Header
           title={this.props.title}
-          subtitle={this.props.subtitle}
           toggleChat={this.props.toggleChat}
           showCloseButton={this.props.showCloseButton}
         />

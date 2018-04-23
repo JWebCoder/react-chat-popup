@@ -48,7 +48,6 @@ class Conversation extends React.Component<Props, State> {
       <KeyboardAvoidingView style={style} behavior="padding">
         <Header
           title={this.props.title}
-          subtitle={this.props.subtitle}
           toggleChat={this.props.toggleChat}
           showCloseButton={this.props.showCloseButton}
         />

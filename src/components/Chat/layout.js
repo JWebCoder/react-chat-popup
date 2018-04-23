@@ -67,7 +67,6 @@ class ChatLayout extends React.Component<Props, State> {
           this.props.showChat &&
           <Conversation
             title={this.props.title}
-            subtitle={this.props.subtitle}
             sendMessage={this.props.onSendMessage}
             senderPlaceHolder={this.props.senderPlaceHolder}
             profileAvatar={this.props.profileAvatar}

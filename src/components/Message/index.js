@@ -35,7 +35,6 @@ class Message extends React.PureComponent<Props, State> {
     } = this.props.message
 
     const sanitizedHTML = marked.parse(text, { sanitize: true })
-    console.log('height', this.props.message.sender, this.state.height)
     return (
       <Div style={{...styles.message[this.props.message.sender], ...{height: this.state.height || 'auto', paddingVertical: 10}}}>
         <HTMLDiv HTML={sanitizedHTML} onChangeHeight={this.onChangeHeight} target={this.props.message.sender}/>

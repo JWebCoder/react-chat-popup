@@ -16,7 +16,6 @@ import type { StoreState } from 'store/store'
 
 type Props = {
   title: string,
-  subtitle: string,
   showCloseButton: boolean,
   fullscreen: boolean,
   toggleChat: () => void,

@@ -49,8 +49,8 @@ class Message extends React.PureComponent<Props, State> {
         <Text>{this.props.message.data.text}</Text>
         <Div style={styles.buttonContainer}>
           {this.props.message.data.choices.map(
-            choice => {
-              return <Button onClick={this.choose(choice.value)} style={styles.button}><Text>{choice.text}</Text></Button>
+            (choice, index) => {
+              return <Button key={index} onClick={this.choose(choice.value)} style={styles.button}><Text>{choice.text}</Text></Button>
             }
           )}
         </Div>
