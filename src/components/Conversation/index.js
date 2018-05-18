@@ -44,7 +44,7 @@ class Conversation extends React.Component<Props, State> {
     }
 
     return (
-      <Div style={style}>
+      <Div className='chat-conversation' style={style}>
         <Header
           title={this.props.title}
           toggleChat={this.props.toggleChat}
