@@ -51,6 +51,7 @@ class ChatLayout extends React.Component<Props, State> {
     } else {
       style = {
         ...styles.widgetContainer,
+        ...this.props.styles
       }
     }
 

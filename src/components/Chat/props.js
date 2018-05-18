@@ -12,4 +12,5 @@ export type Props = {
   badge: number,
   onSendMessage: (message: string) => void,
   onToggleConversation: () => void,
+  styles:?Object
 }
